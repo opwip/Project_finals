@@ -4,6 +4,7 @@ import PhoneNumbers from "./components/PhoneNumbers.vue";
 import { ref } from "vue";
 import MenuViewVue from "./views/MenuView.vue";
 import SearchInput from "./components/SearchInput.vue";
+import HomeView from "./views/HomeView.vue";
 
 const navItem = ref("");
 </script>
@@ -20,7 +21,7 @@ const navItem = ref("");
 
     <div class="wrapper">
       <nav>
-        <RouterLink to="/home">Головна</RouterLink>
+        <RouterLink to="/">Головна</RouterLink>
         <RouterLink to="/payment">Оплата</RouterLink>
         <RouterLink to="/delivery">Доставка</RouterLink>
         <RouterLink to="/guarantee">Гарантія</RouterLink>
