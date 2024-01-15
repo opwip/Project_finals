@@ -14,11 +14,6 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
-    def __iter__(self):
-        products = self.products.filter(in_stock=True)
-        for product in products:
-            yield product
-
     def __str__(self):
         return f"{self.name}"
 
@@ -30,6 +25,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')
     photo = models.ImageField(upload_to="products/", blank=True)
     in_stock = models.BooleanField(default=True)
+    desc = models.TextField(blank = True)
 
     class Meta:
         verbose_name_plural = "Product"
