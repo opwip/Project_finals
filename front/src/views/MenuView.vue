@@ -30,7 +30,7 @@ export default {
           console.log(this.categories);
         })
         .catch((error) => {
-          console.error("Ошибка при получении данных:", error);
+          console.error("Если вдруг у нас ошибка:", error);
         });
     },
   },

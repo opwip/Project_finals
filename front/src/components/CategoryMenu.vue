@@ -15,7 +15,7 @@ export default {
   props: {
     categories: {
       type: Array,
-      //   required: true,
+      required: true,
     },
   },
 };
