@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import MenuItem from "../components/MenuItem.vue";
+// import CategoryPage from "../views/CategoryPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/guarantee",
       name: "guarantee",
       component: () => import("../views/GuaranteeView.vue"),
+    },
+    {
+      path: "/category/:categoryId",
+      name: "CategoryPage",
+      component: () => import("../views/CategoryPage.vue"),
     },
   ],
 });

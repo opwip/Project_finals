@@ -5,6 +5,7 @@ import { ref } from "vue";
 import MenuViewVue from "./views/MenuView.vue";
 import SearchInput from "./components/SearchInput.vue";
 import HomeView from "./views/HomeView.vue";
+import CategoryMenu from "./components/CategoryMenu.vue";
 
 const navItem = ref("");
 </script>

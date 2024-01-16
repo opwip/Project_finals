@@ -1,26 +1,42 @@
-<script setup>
-import { ref } from "vue";
-import MenuItem from "../components/MenuItem.vue";
-
-
-
-const Cat1 = ref("Проточні Фільтри");
-const Cat2 = ref("Питні Фільтри");
-const Cat3 = ref("Змінні Картриджи");
-const Cat4 = ref("Комплектуючі");
-const Cat5 = ref("Битові фільтри");
-</script>
-
-
 <template>
-  <aside >
-    <!-- <h2>Меню</h2> -->
-    <ul >
-      <li v-for="category in categories"
-    v-bind:key = 'category.id'><MenuItem :msg="category.name" /></li>
-    </ul>
+  <aside>
+    <CategoryMenu :categories="categories" />
   </aside>
 </template>
+
+<script>
+import axios from "axios";
+import CategoryMenu from "../components/CategoryMenu.vue";
+
+export default {
+  components: {
+    CategoryMenu,
+  },
+  data() {
+    return {
+      categories: [],
+    };
+  },
+  mounted() {
+    this.fetchCategories();
+  },
+  methods: {
+    fetchCategories() {
+      axios
+        .get("/api/list/")
+        .then((response) => {
+          this.categories = response.data;
+          console.log("Что мы получяем:", response.data);
+          console.log(this.categories);
+        })
+        .catch((error) => {
+          console.error("Ошибка при получении данных:", error);
+        });
+    },
+  },
+};
+</script>
+
 <style scoped>
 aside {
   border: 1px solid lightgrey;
@@ -49,26 +65,3 @@ li a {
   text-transform: uppercase;
 }
 </style>
-
-<script>
-import axios from "axios"
-
-export default {
-  data(){
-    return{
-      categories: []
-    }
-  },
-  mounted() {
-    console.log('mounted')
-
-    axios
-      .get ('/api/list/')
-      .then (response => {
-        console.log(response.data)
-
-        this.categories = response.data
-      })
-  }
-}
-</script>
