@@ -23,7 +23,7 @@ export default {
   methods: {
     fetchCategories() {
       axios
-        .get("/api/list/")
+        .get("/api/categories")
         .then((response) => {
           this.categories = response.data;
           console.log("Что мы получяем:", response.data);

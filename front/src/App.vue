@@ -4,8 +4,8 @@ import PhoneNumbers from "./components/PhoneNumbers.vue";
 import { ref } from "vue";
 import MenuViewVue from "./views/MenuView.vue";
 import SearchInput from "./components/SearchInput.vue";
-import HomeView from "./views/HomeView.vue";
-import CategoryMenu from "./components/CategoryMenu.vue";
+// import HomeView from "./views/HomeView.vue";
+// import CategoryMenu from "./components/CategoryMenu.vue";
 
 const navItem = ref("");
 </script>
@@ -37,7 +37,10 @@ const navItem = ref("");
     <MenuViewVue />
     <RouterView />
   </div>
-  <footer></footer>
+  <footer>
+    <img src="./assets/Copy4.png" alt="" width="11px" height="11px" />
+    <h4>Created by Medvediev & Kolesnyk - 2024</h4>
+  </footer>
 </template>
 
 <style>
@@ -127,5 +130,11 @@ footer {
   background-color: #3e454c;
   display: flex;
   /* align-self: flex-end; */
+  gap: 7px;
+  padding: 3rem;
+  align-items: center;
+}
+h4 {
+  font-style: italic;
 }
 </style>

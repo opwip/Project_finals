@@ -1,7 +1,11 @@
 <template>
   <div>
     <RouterLink
-      :to="{ name: 'CategoryPage', params: { categoryId: category.id } }"
+      :to="{
+        name: 'CategoryPage',
+        params: { categoryId: category.id },
+        query: { categoryName: category.name },
+      }"
       v-for="category in categories"
       :key="category.id"
     >
@@ -20,3 +24,8 @@ export default {
   },
 };
 </script>
+<style>
+a.router-link-exact-active {
+  color: var(--vt-c-indigo);
+}
+</style>
