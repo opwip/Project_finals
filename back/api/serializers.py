@@ -13,11 +13,13 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = "__all__"
 
+
 class ProductSerializer(serializers.ModelSerializer):
     photo = serializers.SerializerMethodField('get_photo_url')
+
     class Meta:
         model = Product
-        fields = ("id","slug","name","price",'photo',"in_stock","desc","category", )
+        fields = ("id", "slug", "name", "price", 'photo', "in_stock", "desc", "category",)
 
     def get_photo_url(self, obj):
-        return obj.photo.url
+        return "http://127.0.0.1:8000/" + obj.photo.url
