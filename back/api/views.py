@@ -50,9 +50,9 @@ def additem(request):
     return Response(serializer.data)
 
 
-class ItemList(generics.ListAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class ProductSearch(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
 
