@@ -13,23 +13,35 @@ def getdata(request):
     serializer = ItemSerializer(items, many=True)
     return Response(serializer.data)
 
+
 @api_view(["GET"])
 def get_categories(request):
     categories = Category.objects.all()
-    serializer = CategorySerializer(categories, many = True)
+    serializer = CategorySerializer(categories, many=True)
     return Response(serializer.data)
-#Products
+
+
+# Products
 @api_view(["GET"])
-def get_products(request, cat):
-    products = Product.objects.get(id=cat)
-    serializer = ProductSerializer(products, many = False)
+def get_product(request, pk):
+    products = Product.objects.get(id=pk)
+    serializer = ProductSerializer(products, many=False)
     return Response(serializer.data)
+
 
 class ProductList(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['category', 'in_stock']
+
+
+class ProductByID(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['id']
+
 
 # End of products
 
@@ -38,8 +50,6 @@ def getdata_from_categories(request, pk):
     items = Item.objects.get(id=pk)
     serializer = ItemSerializer(items, many=False)
     return Response(serializer.data)
-
-
 
 
 @api_view(["POST"])

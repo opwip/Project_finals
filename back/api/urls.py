@@ -8,5 +8,6 @@ urlpatterns = [
     path('list/', views.UserListView.as_view()),
     path('test/<str:pk>', views.getdata_from_categories),
     path("categories", views.get_categories),
-    path('products/', views.ProductList.as_view()),   
+    path('products/', views.ProductList.as_view()),
+    path('product/<str:pk>', views.get_product),
 ]
