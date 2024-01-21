@@ -40,10 +40,11 @@ export default {
 <style scoped>
 aside {
   border: 1px solid lightgrey;
+  border-radius: 5px;
   height: 100%;
   min-width: 21rem;
   padding: 3rem 2rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   margin: 0 5rem;
   display: flex;
   align-self: flex-start;
@@ -61,7 +62,7 @@ li a {
   list-style: none;
   color: var(--vt-c-text-light-2);
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-transform: uppercase;
 }
 </style>

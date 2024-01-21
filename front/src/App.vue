@@ -65,7 +65,7 @@ header {
 .main-content-wrap {
   display: flex;
   flex-direction: row;
-  height: 33rem;
+  min-height: 33vh;
 }
 .logo {
   display: block;
@@ -134,7 +134,7 @@ footer {
   padding: 3rem;
   align-items: center;
 }
-h4 {
+/* h4 {
   font-style: italic;
-}
+} */
 </style>

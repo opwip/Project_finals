@@ -39,6 +39,11 @@ const router = createRouter({
       name: "CategoryPage",
       component: () => import("../views/CategoryPage.vue"),
     },
+    {
+      path: "/product/:productId",
+      name: "GoodsItemPage",
+      component: () => import("../views/GoodsItemPage.vue"),
+    },
   ],
 });
 

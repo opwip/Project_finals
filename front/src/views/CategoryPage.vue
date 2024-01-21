@@ -3,14 +3,29 @@
     <h1>{{ categoryName }}</h1>
     <div class="goods-page-wrap">
       <div class="item-cart" v-for="product in category" :key="product.id">
-        <h4>{{ product.name }}</h4>
-        <div class="cart-img"><img src="#" alt="filter-image" /></div>
+        <RouterLink
+          :to="{
+            name: 'GoodsItemPage',
+            params: { productId: product.id },
+            query: { productName: product.name },
+          }"
+        >
+          <h4>{{ product.name }}</h4>
+          <div class="cart-img">
+            <img
+              v-bind:src="product.photo"
+              alt="filter-image"
+              width="260px"
+              height="240px"
+            />
+          </div>
+        </RouterLink>
         <div class="price">
           <p>
             Ціна: <span>{{ product.price }}</span> грн.
           </p>
           <button>
-            <img src="../assets/basket.png" alt="" width="50px" height="45px" />
+            <img src="../assets/basket.png" alt="" width="45px" height="40px" />
           </button>
         </div>
       </div>
@@ -20,7 +35,7 @@
 
 <script>
 import axios from "axios";
-
+// const imgLink = `v-bind:src="'@/../../back'`;
 export default {
   data() {
     return {
@@ -50,6 +65,8 @@ export default {
           this.category = response.data;
           this.categoryName = categoryName;
           console.log(response.data);
+          const photo = this.category.photo;
+          console.log(photo);
         })
         .catch((error) => {
           console.error("Ошибка при получении данных:", error);
@@ -61,9 +78,9 @@ export default {
   },
 };
 </script>
-<style>
+<style scope>
 h1,
-h2,
+/* h2, */
 h4,
 p span {
   font-weight: bold;
@@ -76,8 +93,8 @@ p span {
   flex-wrap: wrap;
 }
 .item-cart {
-  border: 1px solid lightgray;
-  border-radius: 4px;
+  /* border: 1px solid lightgray;
+  border-radius: 4px; */
   width: 16vw;
   height: 22vw;
   padding: 1rem;
@@ -92,9 +109,9 @@ p span {
 }
 .cart-img {
   margin: 0 auto;
-  width: 100%;
-  height: 270px;
-  border: 1px dotted blue;
+  /* width: 270px;
+  height: 270px; */
+  /* border: 1px dotted blue; */
 }
 .price {
   width: 100%;
