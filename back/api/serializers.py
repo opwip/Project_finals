@@ -1,12 +1,6 @@
 from rest_framework import serializers
-from base.models import Item, Category, Product
-
-
-class ItemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Item
-        fields = '__all__'
-
+from base.models import Category, Product
+from urllib.parse import unquote, quote
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,4 +11,4 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ("id", "slug", "name", "price", 'photo', "in_stock", "desc", "category",)
+        fields = ("id", "slug", "name","price", 'photo', "in_stock", "desc", "category",)

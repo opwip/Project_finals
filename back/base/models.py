@@ -2,11 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-class Item(models.Model):
-    name = models.CharField(max_length=255)
-    created = models.DateTimeField(auto_now_add=True)
-
-
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(auto_created=True)
@@ -25,7 +20,8 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')
     photo = models.ImageField(upload_to="products/", blank=True)
     in_stock = models.BooleanField(default=True)
-    desc = models.TextField(blank = True)
+    desc = models.TextField(blank=True)
+    maker = models.CharField(max_length=255, unique=False)
 
     class Meta:
         verbose_name_plural = "Product"
