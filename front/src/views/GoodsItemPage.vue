@@ -18,7 +18,7 @@
             <span v-if="product.in_stock == true" style="color: greenyellow"
               >В наявності</span
             >
-            <span v-else style="color: red" ;>Немає в наявності</span>
+            <span v-else style="color: red">Немає в наявності</span>
           </p>
           <p class="item-price">
             Ціна: <span>{{ product.price }}</span> грн.
@@ -67,9 +67,9 @@ export default {
       const productName = this.$route.query.productName;
       console.log(productId);
       console.log(productName);
-      this.getCategory(productId, productName);
+      this.getProduct(productId, productName);
     },
-    getCategory(productId, productName) {
+    getProduct(productId, productName) {
       axios
         .get(`api/product/${productId}`)
         .then((response) => {
@@ -82,7 +82,7 @@ export default {
           console.log(photo);
         })
         .catch((error) => {
-          console.error("Ошибка при получении данных:", error);
+          console.error("Помилка при отриманні даних:", error);
 
           //   console.log("Статус ответа:", error.response.status);
           //   console.log("Статус данніх:", error.response.data);

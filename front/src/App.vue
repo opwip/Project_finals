@@ -20,7 +20,7 @@ const navItem = ref("");
       height="89"
     />
 
-    <div class="wrapper">
+    <div class="header-menu-wrap">
       <nav>
         <RouterLink to="/">Головна</RouterLink>
         <RouterLink to="/payment">Оплата</RouterLink>
@@ -30,6 +30,11 @@ const navItem = ref("");
       <div class="info-tools-wrap">
         <PhoneNumbers msg="(093)111-22-33, (067)123-45-67" />
         <SearchInput />
+        <RouterLink to="/basket">
+          <div class="basket-btn">
+            <img src="./assets/basket.png" alt="" width="35px" height="30px" />
+          </div>
+        </RouterLink>
       </div>
     </div>
   </header>
@@ -91,12 +96,11 @@ nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-.wrapper img {
-  margin-top: 6px;
-}
 .info-tools-wrap {
   display: flex;
-  gap: 3rem;
+  width: 100%;
+  gap: 2rem;
+  align-items: center;
 }
 @media (min-width: 1024px) {
   header {
@@ -123,6 +127,21 @@ nav {
   justify-content: space-between;
   padding: 1rem 0;
   margin-top: 1rem;
+}
+.basket-btn {
+  width: 56px;
+  height: 47px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  /* justify-content: center; */
+  padding-left: 7px;
+  align-items: center;
+}
+.basket-btn:hover {
+  background-color: lightgray;
+  /* border-color: black; */
 }
 footer {
   width: 100%;

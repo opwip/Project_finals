@@ -35,7 +35,7 @@
 
 <script>
 import axios from "axios";
-// const imgLink = `v-bind:src="'@/../../back'`;
+
 export default {
   data() {
     return {
@@ -65,14 +65,12 @@ export default {
           this.category = response.data;
           this.categoryName = categoryName;
           console.log(response.data);
-          const photo = this.category.photo;
-          console.log(photo);
         })
         .catch((error) => {
-          console.error("Ошибка при получении данных:", error);
+          console.error("Помилка при отриманні даних:", error);
 
-          console.log("Статус ответа:", error.response.status);
-          console.log("Статус данніх:", error.response.data);
+          // console.log("Статус ответа:", error.response.status);
+          // console.log("Статус данніх:", error.response.data);
         });
     },
   },
@@ -125,15 +123,7 @@ p span {
 /* .price button {
   border: 1px solid lightblue;
 } */
+/* button {
+  border: 1px solid lightgray;
+} */
 </style>
-
-// created() { // const categoryId = this.$route.params.categoryId; // const
-categoryName = this.$route.query.categoryName; // console.log(categoryId); //
-console.log(categoryName); // this.getCategory(categoryId, categoryName); // },
-// methods: { // getCategory(categoryId, categoryName) { // axios // .get( //
-`/api/products/?category=${categoryId}&cacheBuster=${Math.random()}` // ) //
-.then((response) => { // this.category = response.data; // this.categoryName =
-categoryName; // console.log(response.data); // }) // .catch((error) => { //
-console.error("Ошибка при получении данных:", error); // console.log("Статус
-ответа:", error.response.status); // console.log("Статус данніх:",
-error.response.data); // }); // }, // },

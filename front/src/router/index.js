@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import MenuItem from "../components/MenuItem.vue";
-// import CategoryPage from "../views/CategoryPage.vue";
+// import SearchView from "../views/SearchView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,11 +10,7 @@ const router = createRouter({
       name: " ",
       component: HomeView,
     },
-    {
-      path: "/menu-item",
-      name: "menu-item",
-      component: MenuItem,
-    },
+
     {
       path: "/delivery",
       name: "delivery",
@@ -33,6 +28,16 @@ const router = createRouter({
       path: "/guarantee",
       name: "guarantee",
       component: () => import("../views/GuaranteeView.vue"),
+    },
+    {
+      path: "/search",
+      name: "SearchView",
+      component: () => import("../views/SearchView.vue"),
+    },
+    {
+      path: "/basket",
+      name: "basket",
+      component: () => import("../views/BasketView.vue"),
     },
     {
       path: "/category/:categoryId",

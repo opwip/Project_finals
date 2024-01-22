@@ -1,14 +1,31 @@
-<script setup></script>
+<script>
+export default {
+  data() {
+    return {
+      input: "",
+    };
+  },
+};
+</script>
 
 <template>
   <label for="search">
-    <input id="search" />
-    <img
-      alt="Search icon"
-      src="../assets/search@2x.png"
-      width="26px"
-      height="26px"
-    />
+    <!-- <a href="#" -->
+    <RouterLink
+      :to="{
+        name: 'SearchView',
+        query: { searchValue: input },
+      }"
+    >
+      <input v-model="input" id="search" />
+      <img
+        alt="Search icon"
+        src="../assets/search@2x.png"
+        width="26px"
+        height="26px"
+      />
+    </RouterLink>
+    <!-- </a> -->
   </label>
 </template>
 
@@ -24,10 +41,14 @@ input:active,
   outline-offset: 0;
 }
 label {
-  border: 2px solid lightgrey;
+  border: 1px solid lightgrey;
   border-radius: 5px;
-  height: 2.5rem;
+  height: 2.6rem;
   width: 15rem;
   /* margin: 0.2rem 0 0 0.5rem; */
+}
+img {
+  margin-top: 6px;
+  color: lightgrey;
 }
 </style>
