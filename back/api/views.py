@@ -2,9 +2,9 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from base.models import Item, Category, Product
 from .serializers import ItemSerializer, CategorySerializer, ProductSerializer
-from rest_framework import generics
-from rest_framework import filters
+from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.renderers import JSONRenderer
 
 
 @api_view(["GET"])
@@ -63,7 +63,8 @@ def additem(request):
 class ProductSearch(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filter_backends = [filters.SearchFilter]
+    renderer_classes = [JSONRenderer]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     search_fields = ['name']
 
 
