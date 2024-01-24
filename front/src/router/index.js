@@ -49,6 +49,11 @@ const router = createRouter({
       name: "GoodsItemPage",
       component: () => import("../views/GoodsItemPage.vue"),
     },
+    {
+      path: "/orderForm",
+      name: "OrderForm",
+      component: () => import("../views/OrderForm.vue"),
+    },
   ],
 });
 

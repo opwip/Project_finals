@@ -25,7 +25,7 @@
           </p>
           <div class="basket">
             <p>Додати у кошик</p>
-            <button>
+            <button @click="addToBasket">
               <img
                 src="../assets/basket.png"
                 alt=""
@@ -62,6 +62,27 @@ export default {
     this.getData();
   },
   methods: {
+    addToBasket() {
+      // Создаем объект товара для добавления в корзину
+      // const totalPrice =
+      const BasketItem = {
+        id: this.product.id,
+        name: this.product.name,
+        photo: this.product.photo,
+        price: this.product.price,
+        amount: 1,
+      };
+      // Получаем текущее состояние корзины из localStorage
+      const currentBasketItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Добавляем новый товар в корзину
+      currentBasketItems.push(BasketItem);
+
+      // Сохраняем обновленное состояние корзины в localStorage
+      localStorage.setItem("cart", JSON.stringify(currentBasketItems));
+      console.log(currentBasketItems);
+      alert("Товар додан у кошик!");
+    },
     getData() {
       const productId = this.$route.params.productId;
       const productName = this.$route.query.productName;
