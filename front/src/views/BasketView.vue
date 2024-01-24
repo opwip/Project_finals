@@ -52,17 +52,17 @@
       </table>
 
       <h3 class="price">Разом: {{ calculateTotal() }} грн.</h3>
+      <RouterLink to="/">Продовжити покупки</RouterLink>
+      <RouterLink
+        :to="{
+          name: 'OrderForm',
+          // params: { itemId: item.id },
+          // query: { Name: item.name },
+        }"
+      >
+        <h4>Оформити замовлення</h4>
+      </RouterLink>
     </div>
-    <RouterLink to="/">Продовжити покупки</RouterLink>
-    <RouterLink
-      :to="{
-        name: 'OrderForm',
-        // params: { itemId: item.id },
-        // query: { Name: item.name },
-      }"
-    >
-      <h4>Оформити замовлення</h4>
-    </RouterLink>
   </div>
 </template>
 
@@ -122,6 +122,9 @@ export default {
 </script>
 
 <style scoped>
+.wrap {
+  min-width: 45vw;
+}
 .wrap h1 {
   margin-bottom: 2rem;
 }
