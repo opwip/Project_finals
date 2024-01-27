@@ -14,6 +14,9 @@
 
         <div class="item-info">
           <!-- <h4>{{ product.name }}</h4> -->
+          <!-- <p>
+            Виробник: <span>{{ product.maker }}</span>
+          </p> -->
           <p class="storage">
             <span v-if="product.in_stock == true" style="color: greenyellow"
               >В наявності</span
