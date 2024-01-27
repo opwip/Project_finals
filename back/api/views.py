@@ -13,11 +13,11 @@ def email_message_former(data):
     product_string = ""
     total = 0
     for product in data['basket']:
-        product_string += f"{float(product['price']) * product['amount']}грн  {product['name']} X{product['amount']}\n"
+        product_string += f"{float(product['price']) * product['amount']}грн  {product['name']} X{product['amount']}\n        "
         total += float(product['price']) * product['amount']
 
     message = f"""Замовлення на ім'я {data['name']} {data['surname']}\n
-            {product_string}\n Всього до оплати: {total}"""
+    {product_string}\n Всього до оплати: {total}грн"""
     return message
 
 
