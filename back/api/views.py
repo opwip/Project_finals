@@ -51,8 +51,7 @@ class ProductList(generics.ListAPIView):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['category', 'in_stock']
 
-
-# Нижче так багато коду тому що SearchFilter з DRF Є CASESENSITIVE для кірилиці
+#Нижче так багато коду тому що SearchFilter з DRF Є CASESENSITIVE для кірилиці
 @api_view(["GET"])
 def product_search(request):
     request_str = request.get_full_path_info()
