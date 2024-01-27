@@ -1,10 +1,34 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from base.models import Category, Product
-from .serializers import CategorySerializer, ProductSerializer
+from base.models import Category, Product, Order
+from .serializers import CategorySerializer, ProductSerializer, OrderSerializer
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from urllib.parse import unquote, quote
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+def email_message_former(data):
+    product_string = ""
+    total = 0
+    for product in data['basket']:
+        product_string += f"{float(product['price']) * product['amount']}грн  {product['name']} X{product['amount']}\n"
+        total += float(product['price']) * product['amount']
+
+    message = f"""Замовлення на ім'я {data['name']} {data['surname']}\n
+            {product_string}\n Всього до оплати: {total}"""
+    return message
+
+
+@api_view(["POST"])
+def order(request):
+    serializer = OrderSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    send_mail("Order Confirmation", email_message_former(serializer.data), 'settings.EMAIL_HOST_USER',
+              [serializer.data["email"]])
+    return Response(serializer.data)
 
 
 @api_view(["GET"])
@@ -14,7 +38,6 @@ def get_categories(request):
     return Response(serializer.data)
 
 
-# Products
 @api_view(["GET"])
 def get_product(request, pk):
     products = Product.objects.get(id=pk)
@@ -29,32 +52,15 @@ class ProductList(generics.ListAPIView):
     filterset_fields = ['category', 'in_stock']
 
 
-class ProductByID(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['id']
-
-
+# Нижче так багато коду тому що SearchFilter з DRF Є CASESENSITIVE для кірилиці
 @api_view(["GET"])
 def product_search(request):
     request_str = request.get_full_path_info()
-    search = request_str[request_str.index("=")+1:]
+    search = request_str[request_str.index("=") + 1:]
     search_encode = unquote(search).lower()
     serializer = ProductSerializer(Product.objects.all(), many=True)
     resp = []
     for od in serializer.data:
-        if od["name"].lower().find(search_encode)!=-1:
+        if od["name"].lower().find(search_encode) != -1:
             resp.append(od)
     return Response(resp)
-
-# End of products
-
-
-# @api_view(["POST"])
-# def additem(request):
-#     serializer = ItemSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()
-#     return Response(serializer.data)
-

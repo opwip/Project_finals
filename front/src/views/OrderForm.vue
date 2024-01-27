@@ -35,7 +35,7 @@ export default {
       surname: "",
       email: "",
       phone: "",
-      basketItems: [],
+      basketItems: {},
     };
   },
   created() {
@@ -84,10 +84,11 @@ export default {
         };
 
         // Отправляем данные на сервер
-        const response = await axios.post("URL", formData);
+        const response = await axios.post("api/order/", formData);
 
         // Обработываем ответ от сервера
         console.log("Відповідь сервера:", response.data);
+        console.log("MNOTHIG", this.basketItems)
       } catch (error) {
         console.error("Помилка при надсиланні даних:", error.response || error);
       }
