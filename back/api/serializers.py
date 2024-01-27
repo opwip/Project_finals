@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ("id", "slug", "name", "price", 'photo', "in_stock", "desc", "category",)
+        fields = "__all__"
 
 
 class OrderSerializer(serializers.ModelSerializer):
