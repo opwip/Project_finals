@@ -52,7 +52,9 @@ export default {
       // const productId = this.$route.params.productId;
       const productName = this.$route.query.searchValue;
       console.log(productName);
-      this.getProduct(productName);
+      if (productName) {
+        this.getProduct(productName);
+      }
     },
     getProduct(productName) {
       axios
@@ -73,4 +75,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  margin-bottom: 2rem;
+}
+h4 {
+  margin: 2rem 0;
+  color: brown;
+  font-weight: bold;
+}
+</style>

@@ -15,17 +15,26 @@
             <img
               v-bind:src="product.photo"
               alt="filter-image"
-              width="260px"
-              height="240px"
+              width="230px"
+              height="210px"
             />
           </div>
         </RouterLink>
-        <div class="price">
-          <p>
-            Ціна: <span>{{ product.price }}</span> грн.
-          </p>
-          <button>
-            <img src="../assets/basket.png" alt="" width="45px" height="40px" />
+        <div class="item-footer">
+          <div>
+            <p>
+              Ціна: <span>{{ product.price }}</span> грн.
+            </p>
+            <p class="storage">
+              <span v-if="product.in_stock == true" style="color: greenyellow"
+                >В наявності</span
+              >
+              <span v-else style="color: red">Немає в наявності</span>
+            </p>
+          </div>
+
+          <button v-if="product.in_stock == true" @click="addToBasket">
+            <img src="../assets/basket.png" alt="" width="40px" height="35px" />
           </button>
         </div>
       </div>
@@ -51,6 +60,27 @@ export default {
     this.getData();
   },
   methods: {
+    addToBasket() {
+      let BasketItem = {};
+      this.category.forEach((product) => {
+        console.log(product);
+
+        BasketItem = {
+          id: product.id,
+          name: product.name,
+          photo: product.photo,
+          price: product.price,
+          amount: 1,
+        };
+      });
+      const currentBasketItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      currentBasketItems.push(BasketItem);
+
+      localStorage.setItem("cart", JSON.stringify(currentBasketItems));
+      console.log(currentBasketItems);
+      alert("Товар додан у кошик!");
+    },
     getData() {
       const categoryId = this.$route.params.categoryId;
       const categoryName = this.$route.query.categoryName;
@@ -103,15 +133,16 @@ p span {
 .item-cart h4 {
   text-align: center;
   color: var(--vt-c-text-light-1);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .cart-img {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   /* width: 270px;
   height: 270px; */
   /* border: 1px dotted blue; */
 }
-.price {
+.item-footer {
   width: 100%;
   margin-top: 10px;
   display: flex;
@@ -119,6 +150,9 @@ p span {
   /* gap: 50px; */
   justify-content: space-around;
   padding: 0 15px;
+}
+.storage span {
+  font-size: 1rem;
 }
 /* .price button {
   border: 1px solid lightblue;

@@ -14,9 +14,9 @@
 
         <div class="item-info">
           <!-- <h4>{{ product.name }}</h4> -->
-          <!-- <p>
-            Виробник: <span>{{ product.maker }}</span>
-          </p> -->
+          <p>
+            Виробник: <span class="maker"> {{ product.maker }}</span>
+          </p>
           <p class="storage">
             <span v-if="product.in_stock == true" style="color: greenyellow"
               >В наявності</span
@@ -68,23 +68,29 @@ export default {
     addToBasket() {
       // Создаем объект товара для добавления в корзину
       // const totalPrice =
-      const BasketItem = {
-        id: this.product.id,
-        name: this.product.name,
-        photo: this.product.photo,
-        price: this.product.price,
-        amount: 1,
-      };
-      // Получаем текущее состояние корзины из localStorage
-      const currentBasketItems = JSON.parse(localStorage.getItem("cart")) || [];
+      if (this.product.in_stock) {
+        const BasketItem = {
+          id: this.product.id,
+          name: this.product.name,
+          photo: this.product.photo,
+          price: this.product.price,
+          amount: 1,
+        };
 
-      // Добавляем новый товар в корзину
-      currentBasketItems.push(BasketItem);
+        // Получаем текущее состояние корзины из localStorage
+        const currentBasketItems =
+          JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Сохраняем обновленное состояние корзины в localStorage
-      localStorage.setItem("cart", JSON.stringify(currentBasketItems));
-      console.log(currentBasketItems);
-      alert("Товар додан у кошик!");
+        // Добавляем новый товар в корзину
+        currentBasketItems.push(BasketItem);
+
+        // Сохраняем обновленное состояние корзины в localStorage
+        localStorage.setItem("cart", JSON.stringify(currentBasketItems));
+        console.log(currentBasketItems);
+        alert("Товар додан у кошик!");
+      } else {
+        alert("Нажаль, цього товару немає в наявності! Оберіть інший...");
+      }
     },
     getData() {
       const productId = this.$route.params.productId;
@@ -156,7 +162,9 @@ span {
 .storage span {
   font-size: 1rem;
 }
-.item-price span {
+
+.item-price span,
+.maker {
   font-size: 1.1rem;
   color: var(--vt-c-text-light-1);
 }

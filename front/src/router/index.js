@@ -54,6 +54,11 @@ const router = createRouter({
       name: "OrderForm",
       component: () => import("../views/OrderForm.vue"),
     },
+    {
+      path: "/OrderConfirm",
+      name: "OrderConfirm",
+      component: () => import("../components/OrderConfirm.vue"),
+    },
   ],
 });
 
