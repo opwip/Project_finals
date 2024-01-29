@@ -19,9 +19,19 @@
       </div>
       <div class="form-item">
         <label for="phone">Телефон</label>
-        <input v-model="phone" id="phone" placeholder="Ваш номер телефону" />
+        <input
+          v-model="phone"
+          id="phone"
+          placeholder="Ваш номер телефону +380..."
+        />
       </div>
-      <button @click="sendUserData">Далі</button>
+      <RouterLink
+        @click="sendUserData"
+        :to="{
+          name: 'OrderConfirm',
+        }"
+        ><button class="confirmBtn">Далі</button>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -50,9 +60,9 @@ export default {
     },
     async sendUserData() {
       try {
-        let nameRegEx = /^[а-яА-я]{3,10}$/;
+        let nameRegEx = /^[А-Яа-яёЁЇїІіЄєҐґ]{3,12}$/;
         let mailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/;
-        let phoneRegEx = /^[0-9]{10,12}$/;
+        let phoneRegEx = /^\+380[1-9]{1}\d{8}$/;
         let testMail = mailRegEx.test(this.email);
         let testName = nameRegEx.test(this.name);
         let testSurName = nameRegEx.test(this.surname);
@@ -86,12 +96,17 @@ export default {
         // Отправляем данные на сервер
         const response = await axios.post("api/order/", formData);
 
+        this.clearBasket("cart");
+
         // Обработываем ответ от сервера
         console.log("Відповідь сервера:", response.data);
-        console.log("MNOTHIG", this.basketItems)
+        console.log("MNOTHIG", this.basketItems);
       } catch (error) {
         console.error("Помилка при надсиланні даних:", error.response || error);
       }
+    },
+    clearBasket() {
+      localStorage.clear("cart");
     },
   },
 };
@@ -109,6 +124,7 @@ export default {
   flex-wrap: wrap;
   width: 37vw;
   margin-top: 1.5rem;
+  position: relative;
 }
 
 .form-item {
@@ -132,10 +148,10 @@ export default {
 .form-headers h3 {
   font-weight: bold;
 }
-.order-form button {
+.confirmBtn {
   width: 70px;
   height: 25px;
-  margin-left: auto;
-  margin-right: 2rem;
+  position: absolute;
+  right: 2rem;
 }
 </style>

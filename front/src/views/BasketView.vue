@@ -46,7 +46,7 @@
           <td class="price">{{ item.price }} грн</td>
           <td class="price">{{ calculateTotal(item) }} грн</td>
           <td>
-            <button @click="removeFromCart(item.id)" class="delete">Х</button>
+            <button @click="removeFromBasket(item.id)" class="delete">Х</button>
           </td>
         </tr>
       </table>
@@ -85,7 +85,7 @@ export default {
       console.log(storedBasket);
     },
 
-    removeFromCart(itemId) {
+    removeFromBasket(itemId) {
       // Находим индекс товара в корзине
       const index = this.basketItems.findIndex((item) => item.id === itemId);
 
