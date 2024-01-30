@@ -6,32 +6,26 @@
     </div>
     <div class="order-form">
       <div class="form-item">
-        <label for="name">Ім'я</label>
+        <label for="name">Ім'я <span>*</span></label>
         <input v-model="name" id="name" placeholder="Ваше ім'я" />
       </div>
       <div class="form-item">
-        <label for="surname">Прізвище</label>
+        <label for="surname">Прізвище <span>*</span></label>
         <input v-model="surname" id="surname" placeholder="Ваше прізвище" />
       </div>
       <div class="form-item">
-        <label for="email">Електронна адреса </label>
+        <label for="email">Електронна адреса <span>*</span></label>
         <input v-model="email" id="mail" placeholder="Ваш email" />
       </div>
       <div class="form-item">
-        <label for="phone">Телефон</label>
+        <label for="phone">Телефон <span>*</span></label>
         <input
           v-model="phone"
           id="phone"
           placeholder="Ваш номер телефону +380..."
         />
       </div>
-      <RouterLink
-        @click="sendUserData"
-        :to="{
-          name: 'OrderConfirm',
-        }"
-        ><button class="confirmBtn">Далі</button>
-      </RouterLink>
+      <button class="confirm-btn" @:click="sendUserData">Далі</button>
     </div>
   </div>
 </template>
@@ -84,7 +78,6 @@ export default {
           alert("Будь ласка, внесіть корректно свій номер телефону.");
           return;
         }
-        // Получаем данные из формы и из корзины
         const formData = {
           name: this.name,
           surname: this.surname,
@@ -92,13 +85,13 @@ export default {
           phone: this.phone,
           basket: this.basketItems,
         };
-
-        // Отправляем данные на сервер
-        const response = await axios.post("api/order/", formData);
+        this.$router.push({ name: "OrderConfirm" });
 
         this.clearBasket("cart");
+        // на сервер
+        const response = await axios.post("api/order/", formData);
 
-        // Обработываем ответ от сервера
+        // ловим ответ
         console.log("Відповідь сервера:", response.data);
         console.log("MNOTHIG", this.basketItems);
       } catch (error) {
@@ -139,6 +132,9 @@ export default {
 .form-item input {
   height: 40px;
 }
+.form-item span {
+  color: red;
+}
 /* form-item input ::placeholder {
   font-style: italic;
 } */
@@ -148,10 +144,11 @@ export default {
 .form-headers h3 {
   font-weight: bold;
 }
-.confirmBtn {
+.confirm-btn {
   width: 70px;
   height: 25px;
   position: absolute;
   right: 2rem;
+  top: 15rem;
 }
 </style>

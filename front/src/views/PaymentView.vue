@@ -19,16 +19,6 @@
 </template>
 
 <style>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-items: center;
-    justify-content: center;
-  }
-} */
 .second-p {
   font-weight: bold;
   font-style: italic;

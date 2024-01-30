@@ -1,11 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import PhoneNumbers from "./components/PhoneNumbers.vue";
-import { ref } from "vue";
 import MenuViewVue from "./views/MenuView.vue";
 import SearchInput from "./components/SearchInput.vue";
-// import HomeView from "./views/HomeView.vue";
-// import CategoryMenu from "./components/CategoryMenu.vue";
 </script>
 
 <template>
@@ -41,7 +38,7 @@ import SearchInput from "./components/SearchInput.vue";
     <RouterView />
   </div>
   <footer>
-    <img src="./assets/Copy4.png" alt="" width="11px" height="11px" />
+    <img src="./assets/Copy2.png" alt="" width="13px" height="13px" />
     <h4>Created by Medvediev & Kolesnyk - 2024</h4>
   </footer>
 </template>
@@ -55,7 +52,7 @@ import SearchInput from "./components/SearchInput.vue";
 header {
   /* background-color: white; */
   line-height: 1.5;
-  min-height: 15vh;
+  min-height: 5vh;
   max-height: 25vh;
   min-width: 100%;
   padding: 0 0 2rem 5rem;
@@ -63,7 +60,10 @@ header {
   /* padding-bottom: 1rem; */
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
+  background-image: url(./assets/background5.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .main-content-wrap {
   display: flex;
@@ -144,12 +144,14 @@ nav {
 footer {
   width: 100%;
   height: 9rem;
-  background-color: #3e454c;
+  /* background-color: #3e454c; */
   display: flex;
   /* align-self: flex-end; */
   gap: 7px;
   padding: 3rem;
   align-items: center;
+  background-image: url(./assets/background3.png);
+  background-repeat: no-repeat;
 }
 /* h4 {
   font-style: italic;

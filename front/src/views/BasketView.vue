@@ -106,17 +106,17 @@ export default {
       this.updateLocalStorage();
     },
     calculateTotal(item) {
-      // Если передан конкретный товар, возвращаем его общую стоимость
+      // возвращаем его общую стоимость
       if (item) {
         return item.amount * item.price;
       }
-      // Если не передан товар, вычисляем общую стоимость корзины
+      // Если не передан товар, считаем общую стоимость
       return this.basketItems.reduce((total, currentItem) => {
         return total + currentItem.amount * currentItem.price;
       }, 0);
     },
     updateLocalStorage() {
-      // Обновляем Local Storage после изменений в корзине
+      // Обновляем Local Storage после изменений
       localStorage.setItem("cart", JSON.stringify(this.basketItems));
     },
   },
