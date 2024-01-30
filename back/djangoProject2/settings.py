@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     "django_filters",
     "corsheaders",
 
-    'whitenoise'
-
     'base',
 ]
 
@@ -68,7 +66,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
