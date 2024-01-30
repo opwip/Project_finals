@@ -12,10 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from _virtualenv import load_dotenv
-import dj_database_url
-
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,24 +20,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-c0r(ah++sx8=pg0r+3@%kk6kcm+@0#evx0lnomhxrqn+lq!1t='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-DB_NAME=os.environ.get('DB_NAME')
-DB_USER=os.environ.get('DB_USER')
-DB_PASSWORD=os.environ.get('DB_PASSWORD')
-DB_HOST=os.environ.get('DB_HOST')
-DB_PORT=os.environ.get('DB_PORT')
-DB_URL=os.environ.get('DB_URL')
-
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = os.environ.get('EMAIL_PORT')
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'miroslav.koleso@gmail.com'
+EMAIL_HOST_PASSWORD = 'eeugxvjupekcmscm'
 
 ALLOWED_HOSTS = ["*"]
 
@@ -113,18 +102,10 @@ WSGI_APPLICATION = 'djangoProject2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'USER' : DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST' : DB_HOST,
-        'PORT' : DB_PORT
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-db = dj_database_url.config()
-DATABASES['default'].update(db)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
