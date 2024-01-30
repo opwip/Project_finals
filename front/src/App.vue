@@ -38,7 +38,7 @@ import SearchInput from "./components/SearchInput.vue";
     <RouterView />
   </div>
   <footer>
-    <img src="./assets/Copy4.png" alt="" width="11px" height="11px" />
+    <img src="./assets/Copy2.png" alt="" width="13px" height="13px" />
     <h4>Created by Medvediev & Kolesnyk - 2024</h4>
   </footer>
 </template>
@@ -61,6 +61,9 @@ header {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
+  background-image: url(./assets/background5.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .main-content-wrap {
   display: flex;
@@ -141,12 +144,14 @@ nav {
 footer {
   width: 100%;
   height: 9rem;
-  background-color: #3e454c;
+  /* background-color: #3e454c; */
   display: flex;
   /* align-self: flex-end; */
   gap: 7px;
   padding: 3rem;
   align-items: center;
+  background-image: url(./assets/background3.png);
+  background-repeat: no-repeat;
 }
 /* h4 {
   font-style: italic;
