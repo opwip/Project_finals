@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "django_filters",
     "corsheaders",
 
+    'whitenoise'
+
     'base',
 ]
 
