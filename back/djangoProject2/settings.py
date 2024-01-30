@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from virtualenv import load_dotenv
+from _virtualenv import load_dotenv
 import dj_database_url
 
 load_dotenv()
