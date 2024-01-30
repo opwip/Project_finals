@@ -11,8 +11,4 @@
   </main>
 </template>
 
-<style scoped>
-main {
-  border-radius: 5px;
-}
-</style>
+<style scoped></style>

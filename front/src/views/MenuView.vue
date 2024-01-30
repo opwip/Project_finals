@@ -45,7 +45,7 @@ aside {
   min-width: 21rem;
   padding: 3rem 2rem;
   /* font-weight: bold; */
-  margin: 0 3rem;
+  margin: 0 3.7rem;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;

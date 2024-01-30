@@ -60,7 +60,7 @@ header {
   /* padding-bottom: 1rem; */
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
   background-image: url(./assets/background5.png);
   background-repeat: no-repeat;
   background-size: cover;
