@@ -109,7 +109,7 @@ export default {
           this.product = response.data;
           this.productName = productName;
           console.log(response.data);
-          const baseUrl = "http://127.0.0.1:8000/";
+          const baseUrl = "https://lionfish-app-n5fr2.ondigitalocean.app";
           this.product.photo = baseUrl + this.product.photo;
           const photo = this.product.photo;
           console.log(photo);

@@ -12,7 +12,7 @@ import axios from "axios";
 // import VueAwesomeSwiper from "vue-awesome-swiper";
 // Vue.use(VueAwesomeSwiper);
 
-axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
 
 const app = createApp(App);
 
