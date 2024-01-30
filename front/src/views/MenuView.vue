@@ -45,7 +45,7 @@ aside {
   min-width: 21rem;
   padding: 3rem 2rem;
   /* font-weight: bold; */
-  margin: 0 5rem;
+  margin: 0 3rem;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
@@ -53,10 +53,6 @@ aside {
 li {
   list-style: none;
   line-height: 30px;
-  /* color: var(--vt-c-text-light-2);
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase; */
 }
 li a {
   list-style: none;

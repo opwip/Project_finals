@@ -10,7 +10,6 @@ export default {
 
 <template>
   <label for="search">
-    <!-- <a href="#" -->
     <RouterLink
       :to="{
         name: 'SearchView',
@@ -25,7 +24,6 @@ export default {
         height="26px"
       />
     </RouterLink>
-    <!-- </a> -->
   </label>
 </template>
 

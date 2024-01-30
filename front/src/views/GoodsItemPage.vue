@@ -42,7 +42,7 @@
       <div class="descript">
         <h2>Опис:</h2>
         <br />
-        <p>{{ product.desc }}</p>
+        <p v-html="replaceLineBreaks(product.desc)"></p>
       </div>
     </div>
   </div>
@@ -65,8 +65,11 @@ export default {
     this.getData();
   },
   methods: {
+    replaceLineBreaks(text) {
+      return text.replace(/\r\n/g, "<br>");
+    },
     addToBasket() {
-      // Создаем объект товара для добавления в корзину
+      // Создаем объект товара для корзины
       // const totalPrice =
       if (this.product.in_stock) {
         const BasketItem = {
@@ -81,10 +84,10 @@ export default {
         const currentBasketItems =
           JSON.parse(localStorage.getItem("cart")) || [];
 
-        // Добавляем новый товар в корзину
+        // Добавляем свой товар в корзину
         currentBasketItems.push(BasketItem);
 
-        // Сохраняем обновленное состояние корзины в localStorage
+        // Сохраняем новое состояние корзины в localStorage
         localStorage.setItem("cart", JSON.stringify(currentBasketItems));
         console.log(currentBasketItems);
         alert("Товар додан у кошик!");

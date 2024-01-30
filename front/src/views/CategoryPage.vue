@@ -33,7 +33,7 @@
             </p>
           </div>
 
-          <button v-if="product.in_stock == true" @click="addToBasket">
+          <button v-if="product.in_stock == true" @click="addToBasket(product)">
             <img src="../assets/basket.png" alt="" width="40px" height="35px" />
           </button>
         </div>
@@ -60,19 +60,15 @@ export default {
     this.getData();
   },
   methods: {
-    addToBasket() {
-      let BasketItem = {};
-      this.category.forEach((product) => {
-        console.log(product);
-
-        BasketItem = {
-          id: product.id,
-          name: product.name,
-          photo: product.photo,
-          price: product.price,
-          amount: 1,
-        };
-      });
+    addToBasket(product) {
+      const BasketItem = {
+        id: product.id,
+        name: product.name,
+        photo: product.photo,
+        price: product.price,
+        amount: 1,
+      };
+      // });
       const currentBasketItems = JSON.parse(localStorage.getItem("cart")) || [];
 
       currentBasketItems.push(BasketItem);
@@ -121,8 +117,6 @@ p span {
   flex-wrap: wrap;
 }
 .item-cart {
-  /* border: 1px solid lightgray;
-  border-radius: 4px; */
   width: 16vw;
   height: 22vw;
   padding: 1rem;
@@ -138,9 +132,6 @@ p span {
 .cart-img {
   display: flex;
   justify-content: center;
-  /* width: 270px;
-  height: 270px; */
-  /* border: 1px dotted blue; */
 }
 .item-footer {
   width: 100%;
@@ -154,10 +145,4 @@ p span {
 .storage span {
   font-size: 1rem;
 }
-/* .price button {
-  border: 1px solid lightblue;
-} */
-/* button {
-  border: 1px solid lightgray;
-} */
 </style>

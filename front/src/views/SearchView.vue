@@ -10,23 +10,7 @@
         }"
       >
         <h4>{{ product.name }}</h4>
-        <!-- <div class="cart-img">
-          <img
-            v-bind:src="product.photo"
-            alt="filter-image"
-            width="260px"
-            height="240px"
-          />
-        </div> -->
       </RouterLink>
-      <!-- <div class="price">
-        <p>
-          Ціна: <span>{{ product.price }}</span> грн.
-        </p>
-        <button>
-          <img src="../assets/basket.png" alt="" width="45px" height="40px" />
-        </button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -49,7 +33,6 @@ export default {
   },
   methods: {
     getData() {
-      // const productId = this.$route.params.productId;
       const productName = this.$route.query.searchValue;
       console.log(productName);
       if (productName) {
@@ -61,14 +44,10 @@ export default {
         .get(`api/search/?search=${productName}`)
         .then((response) => {
           this.products = response.data;
-          // this.productName = productName;
           console.log(response.data);
         })
         .catch((error) => {
           console.error("Помилка при отриманні даних:", error);
-
-          //   console.log("Статус ответа:", error.response.status);
-          //   console.log("Статус данніх:", error.response.data);
         });
     },
   },

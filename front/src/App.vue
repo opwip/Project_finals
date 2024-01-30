@@ -1,11 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import PhoneNumbers from "./components/PhoneNumbers.vue";
-import { ref } from "vue";
 import MenuViewVue from "./views/MenuView.vue";
 import SearchInput from "./components/SearchInput.vue";
-// import HomeView from "./views/HomeView.vue";
-// import CategoryMenu from "./components/CategoryMenu.vue";
 </script>
 
 <template>
@@ -55,7 +52,7 @@ import SearchInput from "./components/SearchInput.vue";
 header {
   /* background-color: white; */
   line-height: 1.5;
-  min-height: 15vh;
+  min-height: 5vh;
   max-height: 25vh;
   min-width: 100%;
   padding: 0 0 2rem 5rem;
