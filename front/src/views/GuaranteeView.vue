@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>
+  <main>
     <h1>ГАРАНТІЯ</h1>
     <br />
     <h4>
@@ -13,10 +13,13 @@
       У разі гарантійної несправності, протягом року, ми здійснюємо безкоштовний
       гарантійний ремонт або повну заміну товару.
     </p>
-  </div>
+  </main>
 </template>
 
-<style>
+<style scope>
+main {
+  min-height: 32rem;
+}
 h4 {
   font-weight: bold;
   font-style: italic;

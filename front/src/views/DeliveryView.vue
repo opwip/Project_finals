@@ -1,7 +1,7 @@
-<script setup></script>
+<script></script>
 
 <template>
-  <div class="about">
+  <main>
     <h1>ДОСТАВКА</h1>
 
     <!-- ДОСТАВКА МАГАЗИНУ -->
@@ -30,20 +30,13 @@
     </ul>
     <br />
     <h4>Бажаємо вам приємних покупок у нашому магазині.</h4>
-  </div>
+  </main>
 </template>
 
 <style scope>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    align-self: center;
-    justify-items: center;
-    justify-content: center;
-  }
-} */
+main {
+  min-height: 32rem;
+}
 h4 {
   font-weight: bold;
   font-style: italic;

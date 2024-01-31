@@ -41,11 +41,11 @@ export default {
 aside {
   border: 1px solid lightgrey;
   border-radius: 5px;
-  height: 100%;
-  min-width: 21rem;
+  min-height: 100%;
+  min-width: 26rem;
   padding: 3rem 2rem;
   /* font-weight: bold; */
-  margin: 0 3.7rem;
+  margin: 0 3.8rem;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
