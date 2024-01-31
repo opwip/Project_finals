@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="item-wrapper">
     <h1>{{ productName }}</h1>
     <div class="item-page-wrap">
       <div class="top-info-block">
@@ -7,8 +7,8 @@
           <img
             v-bind:src="product.photo"
             alt="filter-image"
-            width="380px"
-            height="380px"
+            width="340rem"
+            height="340rem"
           />
         </div>
 
@@ -192,5 +192,28 @@ span {
 } */
 .descript {
   width: 70%;
+}
+@media (max-width: 1024px) {
+}
+@media (max-width: 650px) {
+  .item-wrapper {
+    max-width: 22rem;
+  }
+  .top-info-block {
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    margin-bottom: 2rem;
+  }
+  .item-info {
+    min-width: 20rem;
+    padding-top: 1rem;
+    max-height: 0.1rem;
+  }
+  .descript {
+    min-width: 22rem;
+  }
+  h1 {
+    font-size: 16px;
+  }
 }
 </style>

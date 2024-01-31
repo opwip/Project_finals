@@ -44,9 +44,23 @@ label {
   height: 2.6rem;
   width: 15rem;
   /* margin: 0.2rem 0 0 0.5rem; */
+  display: block;
+  position: relative;
 }
-img {
-  margin-top: 6px;
+label img {
   color: lightgrey;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 650px) {
+  label img {
+    top: 0.2rem;
+    right: 0.4rem;
+    width: 0.8rem;
+    height: 1rem;
+  }
 }
 </style>

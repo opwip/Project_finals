@@ -3,12 +3,18 @@
 <template>
   <main>
     <img
+      class="banner"
       alt="banner"
       src="../assets/Main_banner.png"
-      width="1329px"
-      height="533px"
+      width="112%"
+      height="460vw"
     />
   </main>
 </template>
 
-<style scoped></style>
+<style scope>
+main {
+  min-height: 32rem;
+  /* width: 100vw; */
+}
+</style>

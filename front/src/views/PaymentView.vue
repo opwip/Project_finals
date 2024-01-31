@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="about">
+  <main>
     <h1>ОПЛАТА</h1>
     <br />
     <p>
@@ -15,10 +15,13 @@
       <li>Переказ на банківську картку.</li>
       <li>Накладний платіж при отриманні товару в службах доставки.</li>
     </ul>
-  </div>
+  </main>
 </template>
 
 <style>
+main {
+  min-height: 32rem;
+}
 .second-p {
   font-weight: bold;
   font-style: italic;

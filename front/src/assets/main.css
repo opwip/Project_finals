@@ -1,21 +1,29 @@
 @import "./base.css";
-/* @import "swiper/css"; */
-/* @import "swiper/css/swiper.css"; */
 
-/* body {
-  background-color: #f8f8f8;
-} */
+html {
+  padding: 0;
+}
+body {
+  padding: 0;
+}
 
 #app {
   width: 100vw;
-  margin: 0 auto;
-  /* padding: 0 3rem; */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
   font-weight: normal;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 3rem;
   justify-content: space-between;
-  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  #app {
+    gap: 10rem;
+    padding: 0 0.5rem;
+  }
 }
 
 a {
@@ -50,10 +58,4 @@ a:active {
     display: flex;
     place-items: top;
   }
-
-  /* #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  } */
 }
