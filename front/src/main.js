@@ -11,9 +11,8 @@ import router from "./router";
 import axios from "axios";
 // import VueAwesomeSwiper from "vue-awesome-swiper";
 // Vue.use(VueAwesomeSwiper);
-import cors from 'cors';
-
-axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
+// axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
+// axios.defaults.headers.common = {"Access-Control-Allow-Origin" : "*"}
 
 // Add a request interceptor to include CORS headers
 // axios.interceptors.request.use(function (config) {
@@ -31,10 +30,10 @@ axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
 // 'Access-Control-Allow-Headers': '',
 // 'Access-Control-Expose-Headers': '*',
 // }
-// axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
+axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
 
 const app = createApp(App);
 
-app.use(router, axios, cors());
+app.use(router, axios);
 
 app.mount("#app");
