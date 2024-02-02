@@ -9,6 +9,10 @@ import App from "./App.vue";
 import router from "./router";
 
 import axios from "axios";
+
+axios.defaults.headers.common['Access-Control-Request-Method'] = '*';
+
+export default axios;
 // import VueAwesomeSwiper from "vue-awesome-swiper";
 // Vue.use(VueAwesomeSwiper);
 
@@ -17,5 +21,7 @@ axios.defaults.baseURL = "https://lionfish-app-n5fr2.ondigitalocean.app";
 const app = createApp(App);
 
 app.use(router, axios);
+
+app.config.globalProperties.$http = axios;
 
 app.mount("#app");
