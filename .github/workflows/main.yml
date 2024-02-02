@@ -16,7 +16,7 @@ jobs:
         server-dir: ${{ secrets.FTP_PATH }}
         local-dir: ./front/
   build:
-    name: Build
+    name: Build ⛏️
     runs-on: ubuntu-latest
     needs: web-deploy
     steps:
