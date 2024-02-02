@@ -22,8 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@main
       - name: Install dependencies
-        run: npm install
-        working-directory: front/
+        run: npm install ./front/package.json
       - name: Build dependencies
         run: npm run build
       - name: Archive production artifact
