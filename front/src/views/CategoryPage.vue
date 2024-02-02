@@ -141,7 +141,7 @@ h1,
 }
 .item-footer {
   width: 100%;
-  margin-top: 2.4rem;
+  margin-top: 2.5rem;
   display: flex;
   align-items: center;
   /* gap: 50px; */
