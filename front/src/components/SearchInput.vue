@@ -19,7 +19,7 @@ export default {
       <input v-model="input" id="search" />
       <img
         alt="Search icon"
-        src="../assets/search@2x.png"
+        src="@/assets/search@2x.png"
         width="26px"
         height="26px"
       />
