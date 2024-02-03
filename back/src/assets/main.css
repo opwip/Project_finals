@@ -1,0 +1,61 @@
+@import "./base.css";
+
+html {
+  padding: 0;
+}
+body {
+  padding: 0;
+}
+
+#app {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-between;
+}
+@media (min-width: 1024px) {
+  #app {
+    gap: 10rem;
+    padding: 0 0.5rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--vt-c-text-light-2);
+}
+a:active {
+  color: var(--color-heading);
+}
+.main-color {
+  color: var(--color-heading);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--color-heading);
+    /* font-weight: bold; */
+  }
+}
+/* @media (hover: hover) {
+  a:active {
+    color: #2185c5;
+  }
+} */
+/* a:visited {
+  color: #2185c5;
+} */
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: top;
+  }
+}
