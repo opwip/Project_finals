@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'base',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
@@ -158,6 +157,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 STATIC_URL = 'static/'
