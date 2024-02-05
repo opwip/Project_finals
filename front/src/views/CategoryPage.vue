@@ -151,6 +151,12 @@ h1,
 .storage span {
   font-size: 1rem;
 }
+@media (max-width: 1560px) {
+  h4 {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 1024px) {
   .goods-page-wrap {
     flex-wrap: wrap;
