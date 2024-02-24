@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Category, Product, Order
+from base.models import Category, Product, Order, OrderItem
 from urllib.parse import unquote, quote
 
 
@@ -18,4 +18,9 @@ class ProductSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
+        fields = "__all__"
+
+class OrderItem(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
         fields = "__all__"
