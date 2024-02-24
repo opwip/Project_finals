@@ -28,4 +28,9 @@ export default {
 a.router-link-exact-active {
   color: var(--vt-c-indigo);
 }
+@media (max-width: 1865px) {
+  a {
+    font-size: 0.8vw;
+  }
+}
 </style>

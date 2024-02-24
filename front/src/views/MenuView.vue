@@ -41,24 +41,35 @@ export default {
 aside {
   border: 1px solid lightgrey;
   border-radius: 5px;
-  min-height: 100%;
-  min-width: 26rem;
-  padding: 3rem 2rem;
+  min-height: 26vw;
+  min-width: 23vw;
+  padding: 3vw 2vw;
   /* font-weight: bold; */
-  margin: 0 3.8rem;
+  margin: 0 3.2vw;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
 }
 li {
   list-style: none;
-  line-height: 30px;
+  line-height: 7vw;
+  font-size: 10vw;
 }
 li a {
   list-style: none;
   color: var(--vt-c-text-light-2);
-  font-size: 16px;
+  font-size: 10vw;
   /* font-weight: bold; */
   text-transform: uppercase;
+}
+@media (max-width: 1540px) {
+  li {
+    font-size: 10%;
+  }
+}
+@media (max-width: 650px) {
+  aside {
+    min-width: 70vw;
+  }
 }
 </style>

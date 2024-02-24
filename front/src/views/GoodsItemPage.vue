@@ -193,8 +193,7 @@ span {
 .descript {
   width: 70%;
 }
-@media (max-width: 1024px) {
-}
+
 @media (max-width: 650px) {
   .item-wrapper {
     max-width: 22rem;
